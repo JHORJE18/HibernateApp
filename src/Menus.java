@@ -55,6 +55,36 @@ public class Menus {
 		return e;
 	}
 	
+	//Nuevo Pedido
+	public Pedido nuevoPedido() {
+		limpiarln();
+		System.out.println("Nuevo Pedido");
+		limpiarln();
+		
+		String fecha = pedirTexto("Introduce la fecha del pedido");
+		
+		//Creamos Pedido
+		Pedido p = new Pedido(fecha);
+		
+		return p;
+	}
+	
+	//Nuevo Item
+	public Item nuevoItem() {
+		limpiarln();
+		System.out.println("Nuevo Item");
+		limpiarln();
+						
+		String nombre = pedirTexto("Introduce el nombre del nuevo Item");
+		
+		int cantidad = pedirInt("Introduce la cantidad");
+		
+		//Creamos Item
+		Item i = new Item(nombre,cantidad);
+
+		return i;
+		}
+	
 	private String pedirTexto(String msg) {
 		Scanner entrada = new Scanner(System.in);
 

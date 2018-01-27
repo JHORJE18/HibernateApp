@@ -47,9 +47,15 @@ public class Program {
 				break;
 			case 2:
 				//Nuevo Pedido
+				System.out.println("Nueva empresa");
+				mn.limpiarln();
+				guardarObjeto(mn.nuevaEmpresa());
 				break;
 			case 3:
 				//Nuevo Item
+				System.out.println("Nueva empresa");
+				mn.limpiarln();
+				guardarObjeto(mn.nuevaEmpresa());
 				break;
 			case 4:
 				//Cancelar
