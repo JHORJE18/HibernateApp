@@ -17,11 +17,15 @@ public class Program {
 		while (!salir) {
 			switch(mn.menu()) {
 			case 1:
+				//Nuevo registro
 				mn.limpiarln();
 				nuevoRegistro();
 				break;
 			case 2:
+				//Consultar registro
 				mn.limpiarln();
+				Empresa e = recuperarEmpresa(1);
+				System.out.println("Empresa " + e.getNombre());
 				break;
 			case 3:
 				salir = true;
@@ -62,6 +66,16 @@ public class Program {
 				System.out.println("Cancelado");
 				break;
 		}
+	}
+	
+	private static Empresa recuperarEmpresa(int id) {
+		session.beginTransaction();
+		
+		Empresa e = session.load(Empresa.class, 1);
+		
+		session.getTransaction().commit();
+		
+		return e;
 	}
 	
 	private static void guardarObjeto(Object o) {
