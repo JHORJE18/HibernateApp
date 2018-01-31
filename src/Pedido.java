@@ -6,6 +6,7 @@ public class Pedido {
 	//Variables
 	private int id;
 	private String fecha;
+	private List<Item> Items = new ArrayList<Item>();
 	
 	public Pedido() {
 		
@@ -30,6 +31,14 @@ public class Pedido {
 
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
+	}
+
+	public List<Item> getItems() {
+		return Items;
+	}
+
+	public void setItems(List<Item> items) {
+		Items = items;
 	}	
 
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menus {
@@ -35,6 +36,24 @@ public class Menus {
 		return opcion;
 	}
 	
+	//Menu Recuperar
+	public int menuRecuperar() {
+		Scanner entrada = new Scanner(System.in);
+
+		limpiarln();
+		System.out.println("Recuperar registro");
+		limpiarln();
+		
+		System.out.println("1. Empresa");
+		System.out.println("2. Pedido");
+		System.out.println("3. Item");
+		System.out.println("4. Cancelar");
+		int opcion = entrada.nextInt();
+		
+		return opcion;
+	}
+
+	
 	//Nueva Empresa
 	public Empresa nuevaEmpresa() {
 		limpiarln();
@@ -61,10 +80,21 @@ public class Menus {
 		System.out.println("Nuevo Pedido");
 		limpiarln();
 		
+		int numItems = pedirInt("Introduce el número de Items de este pedido");
+		
+		//Creamos items
+		ArrayList<Item> listaItems = new ArrayList<Item>();
+		for (int i=0; i<numItems; i++) {
+			listaItems.add(nuevoItem());
+		}
+		
 		String fecha = pedirTexto("Introduce la fecha del pedido");
 		
 		//Creamos Pedido
 		Pedido p = new Pedido(fecha);
+		
+		//Añadimos Items
+		p.setItems(listaItems);
 		
 		return p;
 	}
@@ -85,7 +115,7 @@ public class Menus {
 		return i;
 		}
 	
-	private String pedirTexto(String msg) {
+	public String pedirTexto(String msg) {
 		Scanner entrada = new Scanner(System.in);
 
 		System.out.println(msg);
@@ -94,7 +124,7 @@ public class Menus {
 		return respuesta;
 	}
 	
-	private int pedirInt(String msg) {
+	public int pedirInt(String msg) {
 		Scanner entrada = new Scanner(System.in);
 
 		System.out.println(msg);
